@@ -1,16 +1,9 @@
 {
     "name": "browser-runner",
-    "dependencies": [
-        "narwhal"
-    ],
-    "using": {
-        "devtools": {
-            "catalog": "file://./catalog.json",
-            "name": "devtools"
-        },
-        "playground": {
-            "catalog": "file://./catalog.json",
-            "name": "playground"
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git://github.com/cadorn/browser-runner.git"
         }
-    }
+    ]
 }
