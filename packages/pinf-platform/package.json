@@ -1,0 +1,11 @@
+{
+    "uid": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/pinf-platform/",
+    "name": "pinf-platform",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git://github.com/cadorn/browser-runner.git",
+            "path": "packages/pinf-platform"
+        }
+    ]
+}

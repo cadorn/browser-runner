@@ -1,0 +1,11 @@
+{
+    "uid": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/loaders/",
+    "name": "loaders",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git://github.com/cadorn/browser-runner.git",
+            "path": "packages/loaders"
+        }
+    ]
+}
