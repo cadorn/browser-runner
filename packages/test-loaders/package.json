@@ -1,0 +1,27 @@
+{
+    "uid": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/test-loaders/",
+    "name": "test-loaders",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git://github.com/cadorn/browser-runner.git",
+            "path": "packages/test-loaders"
+        }
+    ],
+    "pinf": {
+        "platforms": {
+            "browser": {
+                "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
+                "name": "pinf-platform",
+                "revision": "master"
+            }
+        },
+        "platform": "browser",
+        "builder": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
+            "name": "pinf-platform",
+            "revision": "master",
+            "module": "builder"
+        }
+    }
+}

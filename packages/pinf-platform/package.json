@@ -7,5 +7,12 @@
             "url": "git://github.com/cadorn/browser-runner.git",
             "path": "packages/pinf-platform"
         }
-    ]
+    ],
+    "using": {
+        "loaders": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
+            "name": "loaders",
+            "revision": "master"
+        }
+    }
 }
