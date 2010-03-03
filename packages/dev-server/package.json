@@ -1,0 +1,44 @@
+{
+    "uid": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/dev-server/",
+    "name": "dev-server",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git://github.com/cadorn/browser-runner.git",
+            "path": "packages/dev-server"
+        }
+    ],
+    "using": {
+        "loaders": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
+            "name": "loaders",
+            "revision": "master"
+        },
+        "pinf-common": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/pinf/packages/catalog.json",
+            "name": "common",
+            "revision": "master"
+        }
+    },
+    "pinf": {
+        "platforms": {
+            "narwhal-rhino": {
+                "catalog": "http://registry.pinf.org/cadorn.org/github/platforms/packages/narwhal/packages/catalog.json",
+                "name": "rhino",
+                "revision": "master"
+            }
+        },
+        "launcher": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/platforms/packages/narwhal/packages/catalog.json",
+            "name": "rhino",
+            "revision": "master",
+            "module": "launchers/jackup"
+        },
+        "builder": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/pinf/packages/catalog.json",
+            "name": "common",
+            "revision": "master",
+            "module": "builders/program-package"
+        }
+    }
+}
