@@ -17,11 +17,21 @@
             }
         },
         "platform": "browser",
-        "builder": {
+        "launcher": {
             "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
-            "name": "pinf-platform",
+            "name": "dev-server",
             "revision": "master",
-            "module": "builder"
+            "module": "launchers/jack",
+            "options": {
+                "documentRoot": "lib",
+                "directoryIndex": "index.html"
+            }
+        },
+        "builder": {
+            "catalog": "http://registry.pinf.org/cadorn.org/github/pinf/packages/catalog.json",
+            "name": "common",
+            "revision": "master",
+            "module": "builders/program-package"
         }
     }
 }

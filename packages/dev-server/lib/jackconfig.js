@@ -15,56 +15,57 @@ var UTIL = require("util");
 var PACKAGES = require("packages");
 // TODO: Once we can jackup an app with a using-package context we can use the "pinf-common" alias
 var DESCRIPTOR = require("package/descriptor", "registry.pinf.org/cadorn.org/github/pinf/packages/common/master");
-var PACKAGE = require("package", "registry.pinf.org/cadorn.org/github/pinf/packages/common/master");
+//var PACKAGE = require("package", "registry.pinf.org/cadorn.org/github/pinf/packages/common/master");
 
 
 var programPath = FILE.Path(system.env.PROGRAM_PATH);
 var descriptor = DESCRIPTOR.PackageDescriptor(programPath.join("package.json"));
+var options = descriptor.getPinfSpec().launcher.options || {};
 
 
 var app = function(env) {
 
+    var rootPath = programPath;
+
     var path = env["PATH_INFO"];
     if(path=="/") {
         // determine index file based on launcher options
-        if(descriptor.getPinfSpec().launcher.options && descriptor.getPinfSpec().launcher.options.indexPath) {
-            path = "/" + descriptor.getPinfSpec().launcher.options.indexPath;
+        if(options.directoryIndex) {
+            path = "/" + options.directoryIndex;
         } else {
-            path = "/lib/index.html";
+            path = "/index.html";
         }
     }
 
-    var m = path.match(/^\/pinf\/@platforms\/([^\/]*)\/@using\/([^\/]*)\/@direct\/(.*)$/);
+    var m = path.match(/^\/pinf\/@uid\/(.*?)\/@direct\/(.*)$/);
     if(m) {
 
-dump(m);    
-        var locator = descriptor.getPlatformLocatorForName(m[1]),
-            platformPkgPath = FILE.Path(system.sea).join("using", locator.getTopLevelId());
-        
-print(locator.getTopLevelId());
+        var path = PACKAGES.usingCatalog[m[1] + "/master"].directory;
 
-dump("platformPkgPath: " + platformPkgPath);
+        // TODO: Read @direct mapping from package descriptor
 
-        var pkg = PACKAGE.Package(platformPkgPath);
-print("pkgPath: " + pkg.getPath());
-
-dump(pkg.getDescriptor());
-
-        locator = pkg.getDescriptor().getUsingLocatorForName(m[2]);
-
-dump(locator);        
-
+        rootPath = path;
+        if(options.documentRoot) {
+            path = "/" + options.documentRoot + "/" + m[2];
+        } else {
+            path = "/" + m[2];
+        }
+    } else {
+        if(options.documentRoot) {
+            path = "/" + options.documentRoot + path;
+        }
     }
-    
+
     env["PATH_INFO"] = path;
 
     return STATIC.Static(function() {}, {
         "urls": [
             path
         ],
-        "root": programPath
+        "root": rootPath
     })(env);
 }
 
 // The application.
 exports.app = ShowExceptions(Lint(ContentType(ContentLength(app))));
+

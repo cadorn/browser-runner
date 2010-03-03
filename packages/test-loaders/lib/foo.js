@@ -2,7 +2,11 @@
  * Module loader should ignore commented calls on require
  var test = require("fake");
  */
-require("./bar");
+
+var BAR = require("./bar");
+
 exports.hi = function() {
-    return "Hello World!!";
+
+    return "Hello World from foo.js and bar.js: " + BAR.msg;
+
 }

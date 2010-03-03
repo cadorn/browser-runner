@@ -1,10 +1,18 @@
+
 var FOO = require("./foo");
-var BAR = require("./bar");
+
 exports.main = function() {
-    console.log("hey I was loaded as main!!")
+
+    console.log("Hello World from main.js");
+
+    console.log(FOO.hi());
+
 }
+
 exports.foo = function() {
     return FOO.hi();
 }
 
-if (require.main == module) exports.main();
+if (require.main == module) {
+    exports.main();
+}

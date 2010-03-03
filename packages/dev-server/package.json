@@ -28,17 +28,8 @@
                 "revision": "master"
             }
         },
-        "launcher": {
-            "catalog": "http://registry.pinf.org/cadorn.org/github/platforms/packages/narwhal/packages/catalog.json",
-            "name": "rhino",
-            "revision": "master",
-            "module": "launchers/jackup"
-        },
         "builder": {
-            "catalog": "http://registry.pinf.org/cadorn.org/github/pinf/packages/catalog.json",
-            "name": "common",
-            "revision": "master",
-            "module": "builders/program-package"
+            "module": "builder"
         }
     }
 }

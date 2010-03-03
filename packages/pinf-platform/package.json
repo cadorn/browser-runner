@@ -8,11 +8,13 @@
             "path": "packages/pinf-platform"
         }
     ],
-    "using": {
-        "loaders": {
-            "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
-            "name": "loaders",
-            "revision": "master"
+    "pinf": {
+        "programs": {
+            "dev-server": {
+                "catalog": "http://registry.pinf.org/cadorn.org/github/browser-runner/packages/catalog.json",
+                "name": "dev-server",
+                "revision": "master"
+            }
         }
     }
 }
