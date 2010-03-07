@@ -7,5 +7,15 @@
             "url": "git://github.com/cadorn/browser-runner.git",
             "path": "packages/loaders"
         }
-    ]
+    ],
+    "implements": {
+        "http://registry.pinf.org/cadorn.org/github/pinf/@meta/routing/path/0.1.0": {
+            "mappings": {
+                "/pinf/@uid/registry.pinf.org/cadorn.org/github/browser-runner/packages/loaders/@direct/{path}": {
+                    "type": "jsgi",
+                    "module": "direct-responder"
+                }
+            }
+        }
+    }
 }
